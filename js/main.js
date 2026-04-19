@@ -79,47 +79,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('hero-canvas');
     if (canvas) {
         const context = canvas.getContext('2d');
-        
-        const frameCount = 80; // Total frames in your sequence
-        const currentFrame = index => (
-            `images/hero/hero_${(index + 1).toString().padStart(3, '0')}.jpg`
-        );
+        const frameCount = 80;
+        const currentFrame = index => `images/hero/hero_${(index + 1).toString().padStart(3, '0')}.jpg`;
 
         const images = [];
-        const airbnb = {
-            frame: 0
-        };
+        const airbnb = { frame: 0 };
+        let imagesLoaded = 0;
 
-        // Preload images
+        // Preload and Size Initializer
+        function updateCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            render();
+        }
+
+        // Preload images with completion check
         for (let i = 0; i < frameCount; i++) {
             const img = new Image();
             img.src = currentFrame(i);
+            img.onload = () => {
+                imagesLoaded++;
+                if (imagesLoaded === 1) render(); // Show first frame immediately
+                if (imagesLoaded === frameCount) initScrollTrigger();
+            };
             images.push(img);
         }
 
-        gsap.to(airbnb, {
-            frame: frameCount - 1,
-            snap: "frame",
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".hero",
-                start: "top top",
-                end: "bottom top",
-                scrub: 1,
-                pin: true,
-            },
-            onUpdate: render
-        });
+        function initScrollTrigger() {
+            gsap.to(airbnb, {
+                frame: frameCount - 1,
+                snap: "frame",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".hero",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 2, // Slightly higher for "silk" smoothness
+                    pin: true,
+                    anticipatePin: 1,
+                }
+            });
 
-        images[0].onload = render;
+            // Using GSAP ticker for the render loop instead of onUpdate
+            // This ensures it runs at the screen's refresh rate and is highly optimized
+            gsap.ticker.add(render);
+        }
 
         function render() {
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Responsive canvas sizing
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            
             const img = images[airbnb.frame];
             if (img && img.complete) {
                 const hRatio = canvas.width / img.width;
@@ -128,12 +134,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const centerShift_x = (canvas.width - img.width * ratio) / 2;
                 const centerShift_y = (canvas.height - img.height * ratio) / 2;
                 
+                context.clearRect(0, 0, canvas.width, canvas.height);
                 context.drawImage(img, 0, 0, img.width, img.height,
                     centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
             }
         }
 
-        window.addEventListener('resize', render);
+        window.addEventListener('resize', updateCanvasSize);
+        updateCanvasSize(); // Initial call
     }
 
     // --- 4. Flavor Carousel ---
