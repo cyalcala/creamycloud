@@ -11,7 +11,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Icons (Iconify) -->
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
@@ -81,45 +81,58 @@
         </div>
     </section>
 
-    <!-- 5. Flavors Showcase -->
-    <section id="flavors" style="background: var(--color-surface);">
+    <!-- 5. Flavors Showcase (Luxury Carousel) -->
+    <section id="flavors" style="background: var(--color-surface); overflow: hidden;">
         <div class="container">
-            <div style="margin-bottom: var(--space-8);">
-                <h2 style="font-size: 48px; font-weight: 900; letter-spacing: -1px;">Seasonal <span class="text-gradient">Masterpieces</span></h2>
+            <div style="margin-bottom: var(--space-2xl); display: flex; justify-content: space-between; align-items: flex-end;">
+                <div>
+                    <p class="text-gradient" style="font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">The Winter Collection</p>
+                    <h2 style="font-size: 64px; font-weight: 700; letter-spacing: -2px;">Seasonal <span class="text-gradient">Masterpieces</span></h2>
+                </div>
+                <div style="display: flex; gap: 12px; margin-bottom: 12px;">
+                    <button id="prev-flavor" class="glass" style="width: 48px; height: 48px; border-radius: 50%; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center;"><iconify-icon icon="lucide:chevron-left"></iconify-icon></button>
+                    <button id="next-flavor" class="glass" style="width: 48px; height: 48px; border-radius: 50%; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center;"><iconify-icon icon="lucide:chevron-right"></iconify-icon></button>
+                </div>
             </div>
-            <div class="grid">
+        </div>
+
+        <div class="flavor-carousel-wrapper" style="padding-left: max(var(--space-lg), calc((100vw - 1200px) / 2 + var(--space-lg))); cursor: grab;">
+            <div class="flavor-track" style="display: flex; gap: var(--space-xl); transition: transform 0.5s ease;">
                 <!-- Flavor 1 -->
-                <div class="card glass">
-                    <div style="aspect-ratio: 1; background: #222; border-radius: 12px; margin-bottom: 16px; overflow: hidden;">
-                        <img src="images/flavor_vanilla.jpg" alt="Madagascar Gold" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="flavor-card glass" style="min-width: 400px; padding: var(--space-xl); border-radius: 32px; flex-shrink: 0;">
+                    <div style="aspect-ratio: 4/5; border-radius: 24px; margin-bottom: 24px; overflow: hidden; position: relative;">
+                        <img src="images/flavor_vanilla.jpg" alt="Madagascar Gold" style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;">
+                        <div style="position: absolute; bottom: 20px; left: 20px; padding: 12px 20px; border-radius: 100px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); color: var(--color-primary); font-weight: 700; font-size: 14px;">$14.00</div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <h4 style="font-size: 20px;">Madagascar Gold</h4>
-                        <span style="color: var(--color-primary); font-weight: 700;">$14</span>
-                    </div>
-                    <p style="font-size: 14px; color: var(--color-text-muted); margin-top: 8px;">Triple-infused bourbon vanilla with a silky gold finish.</p>
+                    <h4 style="font-size: 24px; margin-bottom: 12px;">Madagascar Gold</h4>
+                    <p style="color: var(--color-text-muted); line-height: 1.6;">Triple-infused bourbon vanilla with a silky gold finish and organic A2 dairy base.</p>
                 </div>
                 <!-- Flavor 2 -->
-                <div class="card glass">
-                    <div style="aspect-ratio: 1; background: #222; border-radius: 12px; margin-bottom: 16px; overflow: hidden;">
+                <div class="flavor-card glass" style="min-width: 400px; padding: var(--space-xl); border-radius: 32px; flex-shrink: 0;">
+                    <div style="aspect-ratio: 4/5; border-radius: 24px; margin-bottom: 24px; overflow: hidden; position: relative;">
                         <img src="images/flavor_chocolate.jpg" alt="Midnight Cacao" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; bottom: 20px; left: 20px; padding: 12px 20px; border-radius: 100px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); color: var(--color-primary); font-weight: 700; font-size: 14px;">$16.00</div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <h4 style="font-size: 20px;">Midnight Cacao</h4>
-                        <span style="color: var(--color-primary); font-weight: 700;">$16</span>
-                    </div>
-                    <p style="font-size: 14px; color: var(--color-text-muted); margin-top: 8px;">85% dark Belgian chocolate with hints of sea salt and truffle.</p>
+                    <h4 style="font-size: 24px; margin-bottom: 12px;">Midnight Cacao</h4>
+                    <p style="color: var(--color-text-muted); line-height: 1.6;">85% dark Belgian chocolate with hints of sea salt and smoked truffle accents.</p>
                 </div>
                 <!-- Flavor 3 -->
-                <div class="card glass">
-                    <div style="aspect-ratio: 1; background: #222; border-radius: 12px; margin-bottom: 16px; overflow: hidden;">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #444; font-weight: 900;">PISTACHIO</div>
+                <div class="flavor-card glass" style="min-width: 400px; padding: var(--space-xl); border-radius: 32px; flex-shrink: 0;">
+                    <div style="aspect-ratio: 4/5; border-radius: 24px; margin-bottom: 24px; overflow: hidden; position: relative;">
+                        <img src="images/flavor_vanilla.jpg" alt="Sicilian Emerald" style="width: 100%; height: 100%; object-fit: cover; filter: hue-rotate(90deg);">
+                        <div style="position: absolute; bottom: 20px; left: 20px; padding: 12px 20px; border-radius: 100px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); color: var(--color-primary); font-weight: 700; font-size: 14px;">$18.00</div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <h4 style="font-size: 20px;">Sicilian Emerald</h4>
-                        <span style="color: var(--color-primary); font-weight: 700;">$18</span>
+                    <h4 style="font-size: 24px; margin-bottom: 12px;">Sicilian Emerald</h4>
+                    <p style="color: var(--color-text-muted); line-height: 1.6;">Hand-roasted Bronte pistachios blended with a touch of Mediterranean sea salt.</p>
+                </div>
+                <!-- Flavor 4 -->
+                <div class="flavor-card glass" style="min-width: 400px; padding: var(--space-xl); border-radius: 32px; flex-shrink: 0;">
+                    <div style="aspect-ratio: 4/5; border-radius: 24px; margin-bottom: 24px; overflow: hidden; position: relative;">
+                        <img src="images/flavor_chocolate.jpg" alt="Rosemary Honey" style="width: 100%; height: 100%; object-fit: cover; filter: saturate(0.5) brightness(1.2);">
+                        <div style="position: absolute; bottom: 20px; left: 20px; padding: 12px 20px; border-radius: 100px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); color: var(--color-primary); font-weight: 700; font-size: 14px;">$15.00</div>
                     </div>
-                    <p style="font-size: 14px; color: var(--color-text-muted); margin-top: 8px;">Bronte pistachios roasted to perfection for an earthy sweetness.</p>
+                    <h4 style="font-size: 24px; margin-bottom: 12px;">Wild Honey Sage</h4>
+                    <p style="color: var(--color-text-muted); line-height: 1.6;">Infused with organic wild lavender honey and fresh garden-picked sage leaves.</p>
                 </div>
             </div>
         </div>
@@ -166,6 +179,7 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="js/main.js"></script>
