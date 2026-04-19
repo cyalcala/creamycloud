@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreamyCloud | Artisan Premium Ice Cream</title>
+    
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Indulge in CreamyCloud's artisan ice cream. Crafted with pure ingredients, small-batch freshness, and world-class craftsmanship.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons (Iconify) -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- 1. Navbar -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">Creamy<span class="text-gradient">Cloud</span></a>
+            <ul class="nav-links">
+                <li><a href="#flavors">Flavors</a></li>
+                <li><a href="#craft">Craft</a></li>
+                <li><a href="#about">Story</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="#order" class="btn btn-primary">Order Now</a>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Section -->
+    <section class="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <p class="text-gradient" style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">Limited Small Batch</p>
+            <h1>Pure <br>Indulgence.</h1>
+            <p>Experience the velvet texture of hand-crafted artisan ice cream. Pure ingredients, zero compromise.</p>
+            <div style="display: flex; gap: 16px;">
+                <a href="#flavors" class="btn btn-primary">Taste Luxury</a>
+                <a href="#about" class="btn glass" style="color: white; border-radius: 100px; padding: 16px 32px; text-decoration: none;">Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-content">
+            ARTISAN CRAFTED • PURE INGREDIENTS • LIMITED BATCH • LUXURY TEXTURE • FRESH DAILY • ARTISAN CRAFTED • PURE INGREDIENTS • LIMITED BATCH • LUXURY TEXTURE • FRESH DAILY •
+        </div>
+    </div>
+
+    <!-- 3. Features / Craftsmanship -->
+    <section id="craft" class="container">
+        <div style="text-align: center; margin-bottom: var(--space-8);">
+            <h2 class="text-gradient" style="font-size: 32px; text-transform: uppercase; font-weight: 900;">The Art of Pure Cream</h2>
+        </div>
+        <div class="grid">
+            <div class="glass card">
+                <iconify-icon icon="lucide:award" style="font-size: 32px; color: var(--color-primary); margin-bottom: 16px;"></iconify-icon>
+                <h3>Premium Grade</h3>
+                <p style="color: var(--color-text-muted); margin-top: 8px;">Only the finest organic A2 dairy and ethically sourced vanilla beans.</p>
+            </div>
+            <div class="glass card">
+                <iconify-icon icon="lucide:heart" style="font-size: 32px; color: var(--color-primary); margin-bottom: 16px;"></iconify-icon>
+                <h3>Hand-Crafted</h3>
+                <p style="color: var(--color-text-muted); margin-top: 8px;">Small-batch churned for the dense, creamy texture that defines luxury.</p>
+            </div>
+            <div class="glass card">
+                <iconify-icon icon="lucide:leaf" style="font-size: 32px; color: var(--color-primary); margin-bottom: 16px;"></iconify-icon>
+                <h3>100% Natural</h3>
+                <p style="color: var(--color-text-muted); margin-top: 8px;">Zero artificial stabilizers, zero preservatives. Just pure flavor.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Flavors Showcase -->
+    <section id="flavors" style="background: var(--color-surface);">
+        <div class="container">
+            <div style="margin-bottom: var(--space-8);">
+                <h2 style="font-size: 48px; font-weight: 900; letter-spacing: -1px;">Seasonal <span class="text-gradient">Masterpieces</span></h2>
+            </div>
+            <div class="grid">
+                <!-- Flavor 1 -->
+                <div class="card glass">
+                    <div style="aspect-ratio: 1; background: #222; border-radius: 12px; margin-bottom: 16px; overflow: hidden;">
+                        <img src="images/flavor_vanilla.jpg" alt="Madagascar Gold" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h4 style="font-size: 20px;">Madagascar Gold</h4>
+                        <span style="color: var(--color-primary); font-weight: 700;">$14</span>
+                    </div>
+                    <p style="font-size: 14px; color: var(--color-text-muted); margin-top: 8px;">Triple-infused bourbon vanilla with a silky gold finish.</p>
+                </div>
+                <!-- Flavor 2 -->
+                <div class="card glass">
+                    <div style="aspect-ratio: 1; background: #222; border-radius: 12px; margin-bottom: 16px; overflow: hidden;">
+                        <img src="images/flavor_chocolate.jpg" alt="Midnight Cacao" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h4 style="font-size: 20px;">Midnight Cacao</h4>
+                        <span style="color: var(--color-primary); font-weight: 700;">$16</span>
+                    </div>
+                    <p style="font-size: 14px; color: var(--color-text-muted); margin-top: 8px;">85% dark Belgian chocolate with hints of sea salt and truffle.</p>
+                </div>
+                <!-- Flavor 3 -->
+                <div class="card glass">
+                    <div style="aspect-ratio: 1; background: #222; border-radius: 12px; margin-bottom: 16px; overflow: hidden;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #444; font-weight: 900;">PISTACHIO</div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h4 style="font-size: 20px;">Sicilian Emerald</h4>
+                        <span style="color: var(--color-primary); font-weight: 700;">$18</span>
+                    </div>
+                    <p style="font-size: 14px; color: var(--color-text-muted); margin-top: 8px;">Bronte pistachios roasted to perfection for an earthy sweetness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FAQ -->
+    <section id="faq" class="container" style="max-width: 800px;">
+        <h2 style="text-align: center; margin-bottom: var(--space-6);">Common Questions</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-trigger">What makes it "Artisan"? <iconify-icon icon="lucide:chevron-down"></iconify-icon></button>
+                <div class="faq-content">
+                    We churn in micro-batches of only 12 liters at a time. This ensures absolute control over texture and temperature, resulting in a significantly lower overrun (less air) than commercial ice cream.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger">Do you ship nationwide? <iconify-icon icon="lucide:chevron-down"></iconify-icon></button>
+                <div class="faq-content">
+                    Yes. We use dry-ice technology and biodegradable insulated packaging to ensure your CreamyCloud arrives at exactly -18°C, anywhere in the country.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. CTA Banner -->
+    <section style="background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/hero/hero_001.jpg'); background-size: cover; text-align: center; padding: var(--space-12) 0;">
+        <div class="container">
+            <h2 style="font-size: 48px; font-weight: 900; margin-bottom: 24px;">Taste the <span class="text-gradient">Cloud</span> Today.</h2>
+            <p style="margin-bottom: 32px; color: var(--color-text-muted);">Limited batch remaining for today's delivery.</p>
+            <a href="#" class="btn btn-primary" style="font-size: 18px; padding: 20px 48px;">Explore All Flavors</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: var(--space-8) 0; border-top: 1px solid var(--glass-border);">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+            <a href="#" class="logo">CreamyCloud</a>
+            <p style="color: var(--color-text-muted); font-size: 12px;">© 2026 CreamyCloud Luxury Ice Cream. All rights reserved.</p>
+            <div style="display: flex; gap: 16px;">
+                <iconify-icon icon="lucide:instagram" style="font-size: 20px; color: var(--color-text-muted);"></iconify-icon>
+                <iconify-icon icon="lucide:facebook" style="font-size: 20px; color: var(--color-text-muted);"></iconify-icon>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
