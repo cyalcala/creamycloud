@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const context = canvas.getContext('2d');
         
         // Configuration: Adjust these to match your provided JPGs
-        const frameCount = 60; // Total frames in your sequence
+        const frameCount = 80; // Total frames in your sequence
         const currentFrame = index => (
             `images/hero/hero_${(index + 1).toString().padStart(3, '0')}.jpg`
         );
