@@ -88,8 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Preload and Size Initializer
         function updateCanvasSize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            // Use container dimensions to respect CSS height (like 80vh on mobile)
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
             render();
         }
 
@@ -114,14 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     trigger: ".hero",
                     start: "top top",
                     end: "bottom top",
-                    scrub: 2, // Slightly higher for "silk" smoothness
+                    scrub: 2,
                     pin: true,
                     anticipatePin: 1,
                 }
             });
 
-            // Using GSAP ticker for the render loop instead of onUpdate
-            // This ensures it runs at the screen's refresh rate and is highly optimized
             gsap.ticker.add(render);
         }
 
@@ -130,7 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (img && img.complete) {
                 const hRatio = canvas.width / img.width;
                 const vRatio = canvas.height / img.height;
+                
+                // On mobile, we might want a slightly different cropping strategy
+                // if the image is too zoomed in.
                 const ratio = Math.max(hRatio, vRatio);
+                
                 const centerShift_x = (canvas.width - img.width * ratio) / 2;
                 const centerShift_y = (canvas.height - img.height * ratio) / 2;
                 
